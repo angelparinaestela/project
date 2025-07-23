@@ -1,0 +1,20 @@
+<h2>📄 Historial de Retiros</h2>
+
+<table *ngIf="retiros.length > 0; else sinDatos" border="1" cellspacing="0" cellpadding="6">
+  <tr>
+    <th>Banco</th>
+    <th>Número de Cuenta</th>
+    <th>Monto</th>
+    <th>Estado</th>
+  </tr>
+  <tr *ngFor="let retiro of retiros">
+    <td>{{ retiro.banco }}</td>
+    <td>{{ retiro.numero_cuenta }}</td>
+    <td>S/ {{ retiro.monto }}</td>
+    <td>{{ retiro.estado }}</td>
+  </tr>
+</table>
+
+<ng-template #sinDatos>
+  <p>No hay solicitudes de retiro registradas.</p>
+</ng-template>

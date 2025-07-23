@@ -1,0 +1,29 @@
+<div class="auth-container">
+  <!-- Barra de selección -->
+  <div class="auth-tabs">
+    <button
+      [class.active]="selectedForm === 'login'"
+      (click)="seleccionar('login')"
+    >
+      Iniciar sesión
+    </button>
+    <button
+      [class.active]="selectedForm === 'register'"
+      (click)="seleccionar('register')"
+    >
+      Registrarse
+    </button>
+  </div>
+
+  <!-- Transición suave -->
+  <div class="form-wrapper">
+    <div
+      class="form-content"
+      [class.show-login]="selectedForm === 'login'"
+      [class.show-register]="selectedForm === 'register'"
+    >
+      <app-login *ngIf="selectedForm === 'login'"></app-login>
+      <app-register *ngIf="selectedForm === 'register'"></app-register>
+    </div>
+  </div>
+</div>

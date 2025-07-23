@@ -1,0 +1,21 @@
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+}
+
+.pendiente {
+  color: orange;
+  font-weight: bold;
+}
+
+.confirmado {
+  color: green;
+  font-weight: bold;
+}

@@ -1,0 +1,25 @@
+<h2>Lista de Usuarios</h2>
+
+<table border="1" cellspacing="0" cellpadding="6">
+  <tr>
+    <th>ID</th>
+    <th>Nombres</th>
+    <th>Correo</th>
+    <th>Saldo</th>
+    <th>Recargar</th>
+    <th>Retiros</th> <!-- Nueva columna -->
+  </tr>
+  <tr *ngFor="let usuario of usuarios">
+    <td>{{ usuario.id }}</td>
+    <td>{{ usuario.nombres }}</td>
+    <td>{{ usuario.correo }}</td>
+    <td>S/ {{ usuario.saldo }}</td>
+    <td>
+      <input type="number" [(ngModel)]="montoRecarga" placeholder="S/" />
+      <button (click)="recargarSaldo(usuario.id)">Recargar</button>
+    </td>
+    <td>
+      <button (click)="verRetiros(usuario.id)">📄 Ver Retiros</button> <!-- Nuevo botón -->
+    </td>
+  </tr>
+</table>

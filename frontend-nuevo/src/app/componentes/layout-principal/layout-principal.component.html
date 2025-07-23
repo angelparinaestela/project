@@ -1,0 +1,38 @@
+<!-- Contenido principal -->
+<main class="pb-5">
+  <router-outlet></router-outlet>
+</main>
+
+<!-- 🔹 Barra inferior centrada con ancho máximo -->
+<div class="container-barra">
+  <nav class="navbar navbar-light bg-white border-top fixed-bottom shadow-sm">
+    <div class="d-flex justify-content-between text-center px-3 py-1 w-100">
+
+      <a class="flex-fill text-decoration-none text-dark text-center" routerLink="/panel">
+        <div><i class="bi bi-house-door-fill fs-5"></i></div>
+        <small>Inicio</small>
+      </a>
+
+      <a class="flex-fill text-decoration-none text-dark text-center" routerLink="/tareas">
+        <div><i class="bi bi-list-check fs-5"></i></div>
+        <small>Tareas</small>
+      </a>
+
+      <a class="flex-fill text-decoration-none text-dark text-center" routerLink="/recarga">
+        <div><i class="bi bi-wallet2 fs-5"></i></div>
+        <small>Recarga</small>
+      </a>
+
+      <a class="flex-fill text-decoration-none text-dark text-center" routerLink="/soporte">
+        <div><i class="bi bi-headset fs-5"></i></div>
+        <small>Soporte</small>
+      </a>
+
+      <a class="flex-fill text-decoration-none text-dark text-center" routerLink="/perfil">
+        <div><i class="bi bi-person-circle fs-5"></i></div>
+        <small>Perfil</small>
+      </a>
+
+    </div>
+  </nav>
+</div>

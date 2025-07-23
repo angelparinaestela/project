@@ -1,0 +1,17 @@
+<h2>Asignar Nueva Tarea</h2>
+
+<form (submit)="asignarTarea(); $event.preventDefault()">
+  <label>Título:</label><br />
+  <input type="text" [(ngModel)]="titulo" name="titulo" /><br />
+
+  <label>Descripción:</label><br />
+  <textarea [(ngModel)]="descripcion" name="descripcion"></textarea><br />
+
+  <label>Usuario:</label><br />
+  <select [(ngModel)]="usuario_id" name="usuario_id">
+    <option value="">-- Selecciona un usuario --</option>
+    <option *ngFor="let user of usuarios" [value]="user.id">{{ user.nombres }}</option>
+  </select><br /><br />
+
+  <button type="submit">Asignar Tarea</button>
+</form>

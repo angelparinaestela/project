@@ -1,0 +1,52 @@
+<div class="container mt-4 px-3">
+  <!-- 💳 Carrusel de niveles VIP -->
+  <div class="mb-4">
+    <h5 class="mb-3 text-center">Elige el nivel que deseas recargar</h5>
+    <div class="d-flex overflow-auto">
+      <div *ngFor="let nivel of niveles" class="card me-3 shadow-sm" style="min-width: 250px;">
+        <div class="card-body text-center">
+          <h6 class="mb-2">VIP {{ nivel.nivel }}</h6>
+          <img [src]="nivel.qr_url" alt="QR VIP" class="img-fluid rounded mb-2" style="max-height: 150px">
+          <p><strong>S/ {{ nivel.monto }}</strong></p>
+          <p *ngIf="nivel.completado" class="text-success">✅ Completado</p>
+          <button *ngIf="!nivel.completado && nivel.nivel >= vipActual" 
+                  (click)="seleccionarNivel(nivel.nivel)"
+                  [disabled]="nivelSeleccionado === nivel.nivel"
+                  class="btn btn-outline-primary btn-sm">
+            {{ nivelSeleccionado === nivel.nivel ? 'Seleccionado' : 'Recargar' }}
+          </button>
+          <p *ngIf="nivel.nivel < vipActual && !nivel.completado" class="text-muted small mt-2">Nivel anterior bloqueado</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 📤 Subida de comprobante -->
+  <div class="card shadow-sm mb-4">
+    <div class="card-body text-center">
+      <h6>Sube tu comprobante</h6>
+      <input type="file" (change)="onFileChange($event)" class="form-control my-2">
+      <button (click)="subirVoucher()" class="btn btn-primary mt-2">Enviar comprobante</button>
+      <p class="mt-2 text-success">{{ mensaje }}</p>
+    </div>
+  </div>
+
+  <!-- 📜 Historial de recargas -->
+  <div class="card shadow-sm">
+    <div class="card-body">
+      <h6 class="mb-3">Historial de recargas</h6>
+      <ul class="list-group">
+        <li *ngFor="let r of recargas" class="list-group-item">
+          <strong>Monto:</strong> S/ {{ r.monto }}<br>
+          <strong>Estado:</strong>
+          <span [ngClass]="{
+            'text-warning': r.estado === 'pendiente',
+            'text-success': r.estado === 'real',
+            'text-danger': r.estado === 'falso'
+          }">{{ r.estado }}</span><br>
+          <strong>Fecha:</strong> {{ r.fecha | date: 'short' }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

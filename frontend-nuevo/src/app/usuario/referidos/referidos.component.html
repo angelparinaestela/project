@@ -1,0 +1,14 @@
+<div class="container py-3">
+  <h5 class="text-center mb-4">👥 Mis Referidos</h5>
+
+  <div *ngIf="referidos.length === 0" class="text-center text-muted">
+    Aún no tienes referidos.
+  </div>
+
+  <div *ngFor="let ref of referidos" class="card shadow-sm mb-2">
+    <div class="card-body">
+      <h6 class="mb-0">👤 {{ ref.username }}</h6>
+      <small class="text-muted">Registrado: {{ ref.fecha_registro | date }}</small>
+    </div>
+  </div>
+</div>

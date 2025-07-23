@@ -1,0 +1,31 @@
+<div class="card shadow rounded p-4" style="max-width: 480px; margin: auto; margin-top: 30px;">
+  <h3 class="mb-3 text-center">💸 Retiro de saldo</h3>
+
+  <div class="mb-3">
+    <p><strong>Tu saldo actual:</strong> S/ {{ saldo }}</p>
+    <p><strong>Monto mínimo de retiro:</strong> S/ {{ montoMinimoRetiro }}</p>
+  </div>
+
+  <form (ngSubmit)="enviarSolicitud()">
+    <div class="mb-3">
+      <label class="form-label">Banco:</label>
+      <select class="form-select" [(ngModel)]="bancoSeleccionado" name="banco" required>
+        <option *ngFor="let banco of bancos" [value]="banco.id">{{ banco.nombre }}</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Número de cuenta:</label>
+      <input type="text" class="form-control" [(ngModel)]="numeroCuenta" name="numeroCuenta" required>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Monto a retirar:</label>
+      <input type="number" class="form-control" [(ngModel)]="monto" name="monto" required [min]="montoMinimoRetiro">
+    </div>
+
+    <button class="btn btn-primary w-100" type="submit" [disabled]="saldo < montoMinimoRetiro">
+      Enviar solicitud
+    </button>
+  </form>
+</div>

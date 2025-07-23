@@ -1,0 +1,14 @@
+.register-container {
+  background: linear-gradient(to right, #fef9ff, #e0f2fe);
+}
+
+.card {
+  border: none;
+  border-radius: 1rem;
+  background-color: #ffffff;
+}
+
+input:focus {
+  border-color: #198754;
+  box-shadow: 0 0 0 0.2rem rgba(25, 135, 84, 0.25);
+}

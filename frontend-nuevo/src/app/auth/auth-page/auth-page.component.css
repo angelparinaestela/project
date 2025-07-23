@@ -1,0 +1,57 @@
+.auth-container {
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 1.5rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.auth-tabs {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 1rem;
+}
+
+.auth-tabs button {
+  padding: 0.5rem 1rem;
+  background: none;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.auth-tabs button.active {
+  border-bottom: 3px solid #007bff;
+  color: #007bff;
+}
+
+.form-wrapper {
+  overflow: hidden;
+  position: relative;
+  min-height: 300px;
+}
+
+.form-content {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+app-login,
+app-register {
+  animation: fadeIn 0.4s ease;
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
